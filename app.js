@@ -15,12 +15,13 @@ app.use(express.static('public'));
 //Initialize Sequelize
 //------------------------------------------------------------------------------
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('fruitshop2', 'moes', null, {
+const sequelize = new Sequelize('bulletinboard', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
   host: 'localhost',
   dialect: 'postgres',
   define: {
     timestamps: false
   }
+
 });
 
 //------------------------------------------------------------------------------
@@ -59,22 +60,18 @@ app.post('/post', (req, res) => {
 
 //Show route - Shows the added messages stored in the database
 app.get('/messages', (req, res) => {
-      Message.findAll()
-        .then((allMessages) => {
-          console.log(allMessages);
-
-            res.render('messages', {
-              messages: allMessages
-
-            })
-          })
-
-        })
+  Message.findAll()
+    .then((allMessages) => {
+      res.render('messages', {
+        messages: allMessages
+      })
+    })
+})
 
 //------------------------------------------------------------------------------
 //Server listening
 //------------------------------------------------------------------------------
 
-    app.listen(3000, function() {
-      console.log('Listening on port 3000...');
-    });
+app.listen(3000, function() {
+  console.log('Listening on port 3000...');
+});
