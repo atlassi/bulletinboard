@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		title Messages from Sequelize database
+		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css")
+		link(rel="stylesheet", href="css/style.css")
+	body
+		form.form(action="/", method="get")
+			input(type="submit" value="Add new post")
+		
+		if messages
+			h1 Messages from Sequelize database
+			table.responstable
+				tr
+					th Title
+					th Message
+					each message in messages
+						tr
+							td #{message.title}
+							td #{message.body}
+			
+			
+			
+			script(src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js")
+
+				

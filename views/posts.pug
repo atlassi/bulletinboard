@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title Bulletin Board Application
+    meta(charset="utf-8")
+    link(rel="stylesheet", href="style.css", type="text/css", media="all")
+    script(src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous")
+  body
+    h2 Latest posts
+    form.form(action="/", method="get")
+      input(type="submit" id="button" value="Add new post")
+    p
+      if messages
+        each message in messages
+          li Title: #{message.title}
+          li Body: #{message.body}
+                  
+
+  

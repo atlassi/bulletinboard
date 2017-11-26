@@ -1,35 +1,21 @@
 doctype html
 html
-	head
-		meta(charset="UTF-8")
-		title Interactive Form
-		link(href="https://fonts.googleapis.com/css?family=Lato:300,400", rel="stylesheet", type="text/css")
-		link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css")
-		link(rel="stylesheet", href="css/style.css")
-	body
-		form
-			input#input-1(type="text", placeholder="Achmed Jan", required="", autofocus="")
-			label(for="input-1")
-				span.label-text Full Name
-				span.nav-dot
-				.signup-button-trigger Sign Up
-			input#input-2(type="text", placeholder="john", required="")
-			label(for="input-2")
-				span.label-text Username
-				span.nav-dot
-			input#input-3(type="email", placeholder="email@address.com", required="")
-			label(for="input-3")
-				span.label-text Email
-				span.nav-dot
-			input#input-4(type="text", placeholder="●●●●●●", required="")
-			label(for="input-4")
-				span.label-text Password
-				span.nav-dot
-			input#input-5(type="text", placeholder="●●●●●●", required="")
-			label(for="input-5")
-				span.label-text Confirm Password
-				span.nav-dot
-			button(type="submit") Create Your Account
-			p.tip Press Tab
-			.signup-button Sign Up
-		script(src="js/index.js")
+head
+  title CSS Contact Form
+  meta(charset="utf-8")
+  link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css")
+  link(rel="stylesheet", href="css/style.css")
+body
+  h2.title Bulletin Board Application
+  if title 
+      h2
+  form.form(action="/post", method="post")
+    p.name
+      input(type="text" id="titleField", name="titleInput", placeholder="Title")
+    p.text
+      textarea(name="bodyInput" id='textfield', placeholder="Write message here")
+      p.submit
+      input(type="submit" id="button", value="Post")
+  form.form(action="/messages", method="get")
+    input(type="submit" id="button" value="Show all posts")
+	
